@@ -1,5 +1,4 @@
-// const BASE_URL = "https://pharmacy-maanagement-app.onrender.com/api";
-const BASE_URL = "http://localhost:8800/api";
+const BASE_URL = "https://pharmacy-maanagement-app.onrender.com/api";
 
 const ENDPOINTS = {
     LOGIN: "/auth/pharmacist/admin/login",
