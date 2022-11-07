@@ -84,7 +84,7 @@ const Dashboard = () => {
         <DashboardCard>
           <DashboardCardTitle>TOTAL SALES</DashboardCardTitle>
           <DashboardCardText>
-            {eachOrderSale.length > 0 && `$${calculateOrderTotal()}`}
+            {eachOrderSale.length > 0 ? `$${calculateOrderTotal()}` : 0}
           </DashboardCardText>
         </DashboardCard>
       </DashboardGridBox>
