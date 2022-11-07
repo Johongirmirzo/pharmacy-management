@@ -29,7 +29,7 @@ const Home = () => {
   }, [username]);
 
   useEffect(() => {
-    if (location.pathname === "/" && !username) {
+    if (location.pathname === "/" && username) {
       navigate("/dashboard");
     }
   }, [location]);
