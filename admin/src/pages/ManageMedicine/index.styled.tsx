@@ -10,4 +10,14 @@ const ManageMedicineTitle = styled.h1`
   text-align: center;
   font-size: clamp(1.8rem, calc(3vw + 1rem), 2.3rem);
 `;
-export { ManageMedicineBox, ManageMedicineHeader, ManageMedicineTitle };
+const ManageMedicinePaginationBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+export {
+  ManageMedicineBox,
+  ManageMedicineHeader,
+  ManageMedicineTitle,
+  ManageMedicinePaginationBox,
+};

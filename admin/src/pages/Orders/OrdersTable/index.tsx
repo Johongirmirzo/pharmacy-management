@@ -1,6 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import type { RootState } from "../../../redux/store";
 import {
   Table,
   Thead,
@@ -10,10 +8,9 @@ import {
   Td,
 } from "../../../styles/UI/Table/index.styled";
 import { OrdersTitle } from "./index.styled";
+import { OrdersTableProps } from "./index.types";
 
-const OrdersTable = () => {
-  const orders = useSelector((state: RootState) => state.order.orders);
-
+const OrdersTable = ({ orders }: OrdersTableProps) => {
   return orders.length > 0 ? (
     <Table>
       <Thead>

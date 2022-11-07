@@ -10,5 +10,10 @@ const OrdersTitle = styled.h1`
   text-align: center;
   font-size: clamp(1.8rem, calc(3vw + 1rem), 2.3rem);
 `;
+const OrdersPaginationBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
 
-export { OrdersSection, OrdersHeader, OrdersTitle };
+export { OrdersSection, OrdersHeader, OrdersTitle, OrdersPaginationBox };

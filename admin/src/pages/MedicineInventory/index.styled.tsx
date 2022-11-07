@@ -15,9 +15,15 @@ const MedicineInventoryTitle = styled.h1`
   text-align: center;
   font-size: clamp(1.8rem, calc(3vw + 1rem), 2.3rem);
 `;
+const MedicineInventoryBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
 
 export {
   MedicineInventorySection,
   MedicineInventoryHeader,
   MedicineInventoryTitle,
+  MedicineInventoryBox,
 };

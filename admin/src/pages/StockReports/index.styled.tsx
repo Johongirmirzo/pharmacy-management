@@ -20,6 +20,11 @@ const StockReportsDateBox = styled.div`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 `;
 const StockReportsResult = styled.section``;
+const StockReportsPaginationBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
 
 export {
   StockReportsSection,
@@ -27,4 +32,5 @@ export {
   StockReportsTitle,
   StockReportsDateBox,
   StockReportsResult,
+  StockReportsPaginationBox,
 };

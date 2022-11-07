@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaRegEdit } from "react-icons/fa";
-import { useSelector } from "react-redux";
-import type { RootState } from "../../../redux/store";
 import {
   Table,
   Thead,
@@ -12,10 +10,9 @@ import {
   Td,
 } from "../../../styles/UI/Table/index.styled";
 import { ManageCompanyBtn, ManageCompanyTitle } from "./index.styled";
+import { ManageCompanyTableProps } from "./index.types";
 
-const ManageCompanyTable = () => {
-  const companies = useSelector((state: RootState) => state.company.companies);
-
+const ManageCompanyTable = ({ companies }: ManageCompanyTableProps) => {
   return companies.length > 0 ? (
     <Table>
       <Thead>

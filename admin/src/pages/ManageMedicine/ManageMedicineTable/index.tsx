@@ -1,8 +1,6 @@
 import React from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import type { RootState } from "../../../redux/store";
 import {
   Table,
   Thead,
@@ -16,10 +14,9 @@ import {
   ManageMedicineTitle,
   ManageMedicineOutofStock,
 } from "./index.styled";
+import { ManageMedicineTableProps } from "./index.types";
 
-const ManageMedicineTable = () => {
-  const medicines = useSelector((state: RootState) => state.medicine.medicines);
-
+const ManageMedicineTable = ({ medicines }: ManageMedicineTableProps) => {
   return medicines.length > 0 ? (
     <Table>
       <Thead>

@@ -1,8 +1,6 @@
 import React from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import type { RootState } from "../../../redux/store";
 import {
   Table,
   Thead,
@@ -12,10 +10,9 @@ import {
   Td,
 } from "../../../styles/UI/Table/index.styled";
 import { ManagePharmacistBtn, ManagePharmacistTitle } from "./index.styled";
+import { ManagePharmacistTableProps } from "./index.types";
 
-const ManagePharmacistTable = () => {
-  const { pharmacists } = useSelector((state: RootState) => state.pharmacists);
-
+const ManagePharmacistTable = ({ pharmacists }: ManagePharmacistTableProps) => {
   return pharmacists.length > 0 ? (
     <Table>
       <Thead>
