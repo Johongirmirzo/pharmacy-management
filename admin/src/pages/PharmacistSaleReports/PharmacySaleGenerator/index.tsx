@@ -101,7 +101,7 @@ const PharmacySaleGenerator = ({
         isLoading={isLoading ? true : false}
         disabled={isLoading ? true : false}
       >
-        {isLoading ? "Generating Sale Report..." : "Genereate Report"}
+        {isLoading ? "Generating Sale Report..." : "Genereat Report"}
       </FormButton>
     </>
   );
