@@ -1,0 +1,167 @@
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Formik } from "formik";
+import { useDispatch } from "react-redux";
+import { setAdmin } from "../../redux/admin";
+import loginSchema from "../../schemas/adminLoginSchema";
+import {
+  LoginBox,
+  LoginFormBox,
+  LoginTextBox,
+  LoginTitle,
+  LoginForm,
+  LoginFormControl,
+  LoginLabel,
+  LoginInput,
+  LoginButton,
+  LoginFieldError,
+  LoginAlert,
+  LoginAlertText,
+  LoginAlertCancelBtn,
+} from "./index.styled";
+import { login } from "../../api/pharmacist";
+import {
+  getAdminLoginData,
+  setAdminLoginData,
+  removeAdminLoginData,
+  setToken,
+} from "../../utils/localStorage";
+
+const Login = () => {
+  const loginRememberUserData = getAdminLoginData();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [error, setError] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const closeAlertMessage = (index: number) => {
+    setError(error.filter((err, i) => i !== index));
+  };
+
+  return (
+    <LoginBox>
+      <LoginFormBox>
+        {error &&
+          error.map((err, index) => (
+            <LoginAlert>
+              <LoginAlertText>{err}</LoginAlertText>
+              <LoginAlertCancelBtn
+                onClick={closeAlertMessage.bind(null, index)}
+              >
+                X
+              </LoginAlertCancelBtn>
+            </LoginAlert>
+          ))}
+        <LoginTextBox>
+          <LoginTitle>Admin Login</LoginTitle>
+        </LoginTextBox>
+        <Formik
+          initialValues={{
+            email: loginRememberUserData.email || "",
+            password: loginRememberUserData.password || "",
+            rememberMe: false,
+          }}
+          validationSchema={loginSchema}
+          onSubmit={async (loginData) => {
+            console.log(loginData);
+            try {
+              setIsLoading(true);
+              const response = await login(loginData);
+              setIsLoading(false);
+              console.log(response.data);
+              if (!response.data.pharmacist.isAdmin) {
+                setError([
+                  "You aren't admin! You aren't authorized to access this app",
+                ]);
+              } else {
+                if (loginData.rememberMe) {
+                  setAdminLoginData(loginData);
+                } else {
+                  removeAdminLoginData();
+                }
+
+                dispatch(
+                  setAdmin({
+                    adminId: response.data.pharmacist._id,
+                    fullname: response.data.pharmacist.fullname,
+                    username: response.data.pharmacist.username,
+                    email: response.data.pharmacist.email,
+                    mobileNumber: response.data.pharmacist.mobileNumber,
+                    isAdmin: response.data.pharmacist.isAdmin,
+                  })
+                );
+                setToken(response.data.accessToken, response.data.refreshToken);
+                setError([]);
+                navigate("/");
+              }
+            } catch (error) {
+              setIsLoading(false);
+              setError(["Wrong credentials"]);
+              console.error(error);
+            }
+          }}
+        >
+          {({
+            errors,
+            touched,
+            handleSubmit,
+            isSubmitting,
+            handleChange,
+            values,
+          }) => (
+            <LoginForm onSubmit={handleSubmit}>
+              <LoginFormControl>
+                <LoginLabel htmlFor="email">Email</LoginLabel>
+                <LoginInput
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Please enter email"
+                  value={values.email}
+                  onChange={handleChange}
+                />
+                {errors.email && touched.email ? (
+                  <LoginFieldError>{errors.email}</LoginFieldError>
+                ) : null}
+              </LoginFormControl>
+
+              <LoginFormControl>
+                <LoginLabel htmlFor="password">Password</LoginLabel>
+                <LoginInput
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Please enter password"
+                  value={values.password}
+                  onChange={handleChange}
+                />
+                {errors.password && touched.password ? (
+                  <LoginFieldError>{errors.password}</LoginFieldError>
+                ) : null}
+              </LoginFormControl>
+              <LoginFormControl>
+                <input
+                  type="checkbox"
+                  name="rememberMe"
+                  id="rememberMe"
+                  checked={values.rememberMe}
+                  onChange={handleChange}
+                />
+                <label htmlFor="rememberMe">Remember Me</label>
+              </LoginFormControl>
+              <LoginButton
+                type="submit"
+                disabled={isLoading ? true : false}
+                isLoading={isLoading ? true : false}
+              >
+                {isLoading ? "Logging In..." : "Login"}
+              </LoginButton>
+            </LoginForm>
+          )}
+        </Formik>
+      </LoginFormBox>
+    </LoginBox>
+  );
+};
+
+export default Login;
