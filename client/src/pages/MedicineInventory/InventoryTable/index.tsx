@@ -10,9 +10,9 @@ import {
   Td,
 } from "../../../styles/UI/Table/index.styled";
 import { InventoryTableOutofStock, InventoryTableTitle } from "./index.styled";
+import { InventoryTableProps } from "./index.types";
 
-const InventoryTable = () => {
-  const medicines = useSelector((state: RootState) => state.medicine.medicines);
+const InventoryTable = ({ medicines }: InventoryTableProps) => {
   return medicines.length > 0 ? (
     <Table>
       <Thead>

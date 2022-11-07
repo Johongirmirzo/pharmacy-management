@@ -14,5 +14,16 @@ const OordersSecondaryHeading = styled.h2`
   text-align: center;
   font-size: clamp(1.5rem, calc(2.5vw + 1rem), 1.8rem);
 `;
+const OrdersPaginationBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
 
-export { OrdersSection, OrdersHeader, OrdersTitle, OordersSecondaryHeading };
+export {
+  OrdersSection,
+  OrdersHeader,
+  OrdersTitle,
+  OordersSecondaryHeading,
+  OrdersPaginationBox,
+};
