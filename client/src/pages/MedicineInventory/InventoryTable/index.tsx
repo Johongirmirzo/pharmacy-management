@@ -9,11 +9,11 @@ import {
   Th,
   Td,
 } from "../../../styles/UI/Table/index.styled";
-import { InventoryTableOutofStock } from "./index.styled";
+import { InventoryTableOutofStock, InventoryTableTitle } from "./index.styled";
 
 const InventoryTable = () => {
   const medicines = useSelector((state: RootState) => state.medicine.medicines);
-  return (
+  return medicines.length > 0 ? (
     <Table>
       <Thead>
         <Tr>
@@ -46,6 +46,8 @@ const InventoryTable = () => {
         ))}
       </Tbody>
     </Table>
+  ) : (
+    <InventoryTableTitle>No medicines has been added yet!</InventoryTableTitle>
   );
 };
 
