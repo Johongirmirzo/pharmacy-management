@@ -65,7 +65,7 @@ const PharmacistSaleReports = () => {
       {salesByPharmacist.length > 0 ? (
         <PharmacistSaleResultBox>
           <ReportMessage
-            message="Sales for dates"
+            message="Sales between"
             stockReportDate={pharmacySaleDate}
             pharmacist={pharmacistName}
           />
@@ -76,7 +76,7 @@ const PharmacistSaleReports = () => {
         </PharmacistSaleResultBox>
       ) : pharmacistName ? (
         <ReportMessage
-          message={`Pharmacist ${pharmacistName} has not made any sales for dates`}
+          message={`Pharmacist ${pharmacistName} has not made any sales between`}
           stockReportDate={pharmacySaleDate}
         />
       ) : (
