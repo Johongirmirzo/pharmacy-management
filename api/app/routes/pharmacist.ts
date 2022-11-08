@@ -2,6 +2,7 @@ import {Router} from "express";
 import {PharmacistController} from "../controllers/PharmacistController";
 import {isAdmin} from "../middlewares/isAdmin"
 import validatePharmacist from "../middlewares/validatePharmacist";
+import {userLoginRateLimiter, adminLoginRateLimiter} from "../middlewares/loginRateLimiter"
 import {
     pharmacistRegisterValidator, 
     pharmacistLoginValidator, 
@@ -13,10 +14,10 @@ import {
 const router = Router();
 
 // pharmacist routes 
-router.post("/login", pharmacistLoginValidator,  PharmacistController.login);
+router.post("/login", userLoginRateLimiter, pharmacistLoginValidator,  PharmacistController.login);
 
 // admin routes
-router.post("/admin/login", pharmacistLoginValidator, PharmacistController.login)
+router.post("/admin/login", adminLoginRateLimiter, pharmacistLoginValidator, PharmacistController.login)
 router.get("/getAllPharmacists", validatePharmacist, isAdmin, PharmacistController.getAllPharmacists);
 router.get("/getPharmacist/:pharmacistId", validatePharmacist, isAdmin, PharmacistController.getPharmacist);
 router.post("/createPharmacist", validatePharmacist, isAdmin, pharmacistRegisterValidator, PharmacistController.createPharmacist);

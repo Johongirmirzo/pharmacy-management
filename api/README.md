@@ -8,6 +8,7 @@ PHM is the app which consists of 2 parts, the admin and the pharmacist. The Admi
 - Express
 - Mongoose
 - Typescript
+- Jsonwebtoken
 - Bcrypt
   
 
