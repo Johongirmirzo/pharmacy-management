@@ -4,7 +4,7 @@ import { LoaderBox, LoaderTitle } from "./index.styled";
 const Loader = () => {
   return (
     <LoaderBox>
-      <LoaderTitle>Loading...</LoaderTitle>;
+      <LoaderTitle>Loading...</LoaderTitle>
     </LoaderBox>
   );
 };
