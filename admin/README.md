@@ -10,6 +10,8 @@ Admin is responsible for adding new pharmacists, medical companies, and medicine
 - Styled-Components
 
 
+https://user-images.githubusercontent.com/104018697/200476440-eb86aff0-2fbf-40c4-a0d5-2fdc43c88d9e.mp4
+
 ## Features:
 
 ### Login
