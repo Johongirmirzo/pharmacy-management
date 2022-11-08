@@ -63,10 +63,13 @@ const Login = () => {
       setToken(response.data.accessToken, response.data.refreshToken);
       setError([]);
       navigate("/");
-    } catch (error) {
+    } catch (error: any) {
       setIsLoading(false);
-      setError(["Wrong credentials"]);
-      console.error(error);
+      setError([
+        error.response.status === 429
+          ? error.response.data
+          : "Wrong credentials",
+      ]);
     }
   };
 

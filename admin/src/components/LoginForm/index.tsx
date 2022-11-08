@@ -68,7 +68,6 @@ const Login = () => {
               setIsLoading(true);
               const response = await login(loginData);
               setIsLoading(false);
-              console.log(response.data);
               if (!response.data.pharmacist.isAdmin) {
                 setError([
                   "You aren't admin! You aren't authorized to access this app",
@@ -94,10 +93,13 @@ const Login = () => {
                 setError([]);
                 navigate("/");
               }
-            } catch (error) {
+            } catch (error: any) {
               setIsLoading(false);
-              setError(["Wrong credentials"]);
-              console.error(error);
+              setError([
+                error.response.status === 429
+                  ? error.response.data
+                  : "Wrong credentials",
+              ]);
             }
           }}
         >
