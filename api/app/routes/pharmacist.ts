@@ -12,7 +12,7 @@ import {
 } from "../middlewares/validators"
 
 const router = Router();
-
+ 
 // pharmacist routes 
 router.post("/login", userLoginRateLimiter, pharmacistLoginValidator,  PharmacistController.login);
 
