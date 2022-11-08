@@ -1,46 +1,73 @@
-# Getting Started with Create React App
+# Pharmacy Management App
+Pharmacist is responsible for making orders for customers. And the pharmacist can track his sales, print and download each order invoice . He can also view tota sales for each day via the line chart where sale for each day is displayed.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Technologies used:
+- React
+- Redux-Toolkit
+- Redux-Persist
+- React-Redux
+- Typescript
+- Styled-Components
 
-## Available Scripts
 
-In the project directory, you can run:
+## Features:
 
-### `npm start`
+### Login
+1. Pharmacist submits his credentials
+   1. If he's authenticated the server sends back token and authentication credentials
+   2. Else authentication fails like if he enters non-existing email or wrong password then apropriate error message is displayed in the UI
+   3. Or if the pharmacist makes more than 3 unsuccessfull login attempts, then he's disabled to login for until another 1 hour
+   4. Else authentication successful then the pharmacist can access the app
+   
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Dashboard
+- In dashboard the pharmacist can view total sales that are displayed on the line chart.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Invoice Search
+1. The Pharmacist submits an invoice number
+   1. If the invoice number is invalid, apropriate error message is displayed in the UI, indicating what went wrong
+   2. Else the invoice number is valid, then order with that invoice number is displayed
+   3. Found invoice can then be downloaded, or printed out
 
-### `npm test`
+### Medicine Inventory
+- The Pharmacist can view all the medicines that've been created so far, medicines are displayed 5 per page by default but admin can change it to display 10, 25, 50, 75 or 100 medicines per page. Admin can also move to different pages to view other medicines using pagination
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Medicine Search
+1. The pharmacist submits a medicine name
+   1. If it's invalid then error message is displayed in the UI
+   2. Else it's valid then found medicine is displayed in the UI
+   3. Then pharmacist can add amount of the found medicine to the cart
+   4. Once he enters add to cart, he'll be redirect to the cart page where he sees all the medicines that's been added to the cart so far
+   5. The pharmacist also sees empty form fields where he fill it with customer info like customer name, phone number and his payment type
+   6. The pharmacist can also delete unwanted medicines from the cart
+   7. Once the pharmacist fills the customer details and makes order he'll be redirect to invoice page
+   
+### Invoice
+- Invoice page where the pharmacist's redirected as soon as he makes the order 
+- And in that page the pharmacist sees all details for the new order like customer info and medicines
+- The pharmacist can either print or download that invoice or do both
 
-### `npm run build`
+### Cart
+- If the pharmacist has added medicines to the cart he sees them in here
+- Else no medicines's been added to the cart message is displayed in the 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Orders
+- The pharmacist sees table of orders on each row containing customer name, mobile number, his payment type, and the order invoice number. orders are displayed 10 per page by default but admin can change it to display 10, 25, 50, 75 or 100 medicines per page. Admin can also move to different pages to view other medicines using pagination
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Sales Reports
+1. The pharmacist submits 2 dates to view his sale reports between those 2 dates
+    1. If data is invalid then erorr message is displayed in the UI
+    2. Else if data is valid 
+       1. Then all of the sales that's been made by him between those 2 dates are displayed
+       2. Else informative message to indicate no sales's been mades between those 2 dates are displayed
 
-### `npm run eject`
+### Change Profile
+1. The pharmacist submits his profile data to edit
+   1. If data is invliad then erorr message is displayed in the UI
+   2. Else if data is valid then message to indicate his profile changed is displayed in the UI
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Change Password
+1. The pharmacist submits his password data to edit
+   1. If data is invliad then erorr message is displayed in the UI
+   2. Else if data is valid then message to indicate his password changed is displayed in the UI

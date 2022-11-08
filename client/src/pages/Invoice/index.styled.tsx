@@ -17,7 +17,7 @@ const PrintInvoiceBtnsBox = styled.div`
   display: flex;
   align-items: center;
   gap: 30px;
-  margin-top: 20px;
+  margin-top: 30px 0 20px 0;
 `;
 const InvoiceTableBox = styled.div``;
 
