@@ -1,6 +1,10 @@
 # Pharmacy Management App
 Admin is responsible for adding new pharmacists, medical companies, and medicines. He can also view stock reports, sales reports, and sale reports by individual pharmacists. He can view total pharmacists, medical companies, medicines, total sale, and the line chart where sale for each day is displayed. Admin can view all the orders and search invoice with each individual order invoice number. Once he searched for order with it's invoice number, he see that order details like customer that's made the order and all the medicines he's ordered. Admin can print and also download the invoice.
 
+## [LIVE](https://pharmacy-management-app-admin.netlify.app)
+
+https://user-images.githubusercontent.com/104018697/200476440-eb86aff0-2fbf-40c4-a0d5-2fdc43c88d9e.mp4
+
 ## Technologies used:
 - React
 - Redux-Toolkit
@@ -8,7 +12,6 @@ Admin is responsible for adding new pharmacists, medical companies, and medicine
 - React-Redux
 - Typescript
 - Styled-Components
-
 
 ## Features:
 

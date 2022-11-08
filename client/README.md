@@ -1,6 +1,10 @@
 # Pharmacy Management App
 Pharmacist is responsible for making orders for customers. And the pharmacist can track his sales, print and download each order invoice . He can also view tota sales for each day via the line chart where sale for each day is displayed.
 
+## [LIVE](https://pharmacy-management-app.netlify.app/)
+
+https://user-images.githubusercontent.com/104018697/200477463-8a2ddba7-fb01-404c-8001-213efd1ee1f9.mp4
+
 ## Technologies used:
 - React
 - Redux-Toolkit
@@ -8,7 +12,6 @@ Pharmacist is responsible for making orders for customers. And the pharmacist ca
 - React-Redux
 - Typescript
 - Styled-Components
-
 
 ## Features:
 
