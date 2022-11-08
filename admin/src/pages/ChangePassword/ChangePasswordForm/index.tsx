@@ -31,6 +31,8 @@ const ChangePasswordForm = () => {
       setError(["Your password is changed!"]);
       setIsLoading(false);
     } catch (err) {
+      console.log(err);
+      console.error(err);
       setError(["Incorrect Password!"]);
       setIsLoading(false);
     }
