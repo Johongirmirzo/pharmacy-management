@@ -4,9 +4,7 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import session from 'express-session';
-import connectRedis from "connect-redis";
 import MongoStore from "connect-mongo";
-import Redis from "ioredis"
 import helmet from "helmet";
 import connectDB from "./config/connectDB";
 import pharmacistRoutes from "./routes/pharmacist";
@@ -43,15 +41,6 @@ app.use(express.json());
 app.use(helmet());
 app.use(morgan("combined"));
 
-// const RedisStore = connectRedis(session);
-// const redisClient = new Redis();
-
-app.use(session({
-    secret: process.env.SESSION_SECRET || 'very secret',
-    resave: false,
-    saveUninitialized: false,
-    store: MongoStore.create({mongoUrl: "mongodb://localhost/phm"})
-}));
 
 app.use("/api/auth/pharmacist", pharmacistRoutes);
 app.use("/api/medicine", medicineRoutes);
