@@ -7,12 +7,13 @@ const express_1 = require("express");
 const PharmacistController_1 = require("../controllers/PharmacistController");
 const isAdmin_1 = require("../middlewares/isAdmin");
 const validatePharmacist_1 = __importDefault(require("../middlewares/validatePharmacist"));
+const loginRateLimiter_1 = require("../middlewares/loginRateLimiter");
 const validators_1 = require("../middlewares/validators");
 const router = (0, express_1.Router)();
 // pharmacist routes 
-router.post("/login", validators_1.pharmacistLoginValidator, PharmacistController_1.PharmacistController.login);
+router.post("/login", loginRateLimiter_1.userLoginRateLimiter, validators_1.pharmacistLoginValidator, PharmacistController_1.PharmacistController.login);
 // admin routes
-router.post("/admin/login", validators_1.pharmacistLoginValidator, PharmacistController_1.PharmacistController.login);
+router.post("/admin/login", loginRateLimiter_1.adminLoginRateLimiter, validators_1.pharmacistLoginValidator, PharmacistController_1.PharmacistController.login);
 router.get("/getAllPharmacists", validatePharmacist_1.default, isAdmin_1.isAdmin, PharmacistController_1.PharmacistController.getAllPharmacists);
 router.get("/getPharmacist/:pharmacistId", validatePharmacist_1.default, isAdmin_1.isAdmin, PharmacistController_1.PharmacistController.getPharmacist);
 router.post("/createPharmacist", validatePharmacist_1.default, isAdmin_1.isAdmin, validators_1.pharmacistRegisterValidator, PharmacistController_1.PharmacistController.createPharmacist);

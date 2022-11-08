@@ -2,10 +2,10 @@
   "name": "api",
   "version": "1.0.0",
   "description": "",
-  "main": "server.ts",
+  "main": "server.js",
   "scripts": {
     "start": "node build/server.js",
-    "dev": "nodemon app/server"
+    "dev": "tsc --watch"
   },
   "keywords": [],
   "author": "",

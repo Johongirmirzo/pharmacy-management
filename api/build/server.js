@@ -17,8 +17,6 @@ dotenv_1.default.config();
 const express_1 = __importDefault(require("express"));
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
-const express_session_1 = __importDefault(require("express-session"));
-const connect_mongo_1 = __importDefault(require("connect-mongo"));
 const helmet_1 = __importDefault(require("helmet"));
 const connectDB_1 = __importDefault(require("./config/connectDB"));
 const pharmacist_1 = __importDefault(require("./routes/pharmacist"));
@@ -50,14 +48,6 @@ app.use(express_1.default.urlencoded({ extended: false }));
 app.use(express_1.default.json());
 app.use((0, helmet_1.default)());
 app.use((0, morgan_1.default)("combined"));
-// const RedisStore = connectRedis(session);
-// const redisClient = new Redis();
-app.use((0, express_session_1.default)({
-    secret: process.env.SESSION_SECRET || 'very secret',
-    resave: false,
-    saveUninitialized: false,
-    store: connect_mongo_1.default.create({ mongoUrl: "mongodb://localhost/phm" })
-}));
 app.use("/api/auth/pharmacist", pharmacist_1.default);
 app.use("/api/medicine", medicine_1.default);
 app.use("/api/company", company_1.default);
