@@ -43,6 +43,24 @@ const SidebarAside = styled.aside`
         visibility: visible;
       }
     `}
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 20px;
+    border-radius: 30px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: hsl(0, 0%, 88%);
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: hsl(0, 0%, 67%);
+    width: 20px;
+    height: 20px;
+    border-radius: 30px;
+  }
 `;
 const SidebarOverlay = styled.div`
   position: fixed;

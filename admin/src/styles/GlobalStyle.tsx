@@ -35,6 +35,29 @@ button {
 a {
   text-decoration: none;
 }
+
+/* body scrollbar */
+body::-webkit-scrollbar {
+  width: 10px;
+  height: 20px;
+  border-radius: 30px;
+}
+
+/* Track */
+body::-webkit-scrollbar-track {
+  background: hsl(0, 0%, 82%);
+}
+ 
+/* Handle */
+body::-webkit-scrollbar-thumb {
+  background: hsl(0, 0%, 67%);
+  width: 20px;
+  height: 20px;
+  border-radius: 30px;
+}
+
+
+
 /* Pagination Styles */
 .pagination-list {
   display: flex;
