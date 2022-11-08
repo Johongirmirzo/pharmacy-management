@@ -30,7 +30,7 @@ Admin is responsible for adding new pharmacists, medical companies, and medicine
    3. Found invoice can then be downloaded, or printed out
 
 ### Medicine Inventory
-- Admin can all the medicines that've been created so far, medicines are displayed 5 per page by default but admin can change it to display 10, 25, 50, 75 or 100 medicines per page. Admin can also move to different pages to view other medicines using pagination
+- Admin can view all the medicines that've been created so far, medicines are displayed 5 per page by default but admin can change it to display 10, 25, 50, 75 or 100 medicines per page. Admin can also move to different pages to view other medicines using pagination
 
 ### Orders
 - Admin sees list of table items on each row containing customer name, mobile number, his payment type, and the order invoice number. orders are displayed 10 per page by default but admin can change it to display 10, 25, 50, 75 or 100 medicines per page. Admin can also move to different pages to view other medicines using pagination
