@@ -3,7 +3,7 @@ import rateLimit from 'express-rate-limit'
 
 export const userLoginRateLimiter =  rateLimit({
         windowMs: 60 * 60 * 1000,
-        max: 5,
+        max: 3,
         message:
             'Too many login attempts. please try again after an hour!',
         standardHeaders: true, 
@@ -11,7 +11,7 @@ export const userLoginRateLimiter =  rateLimit({
 })
 export const adminLoginRateLimiter = rateLimit({
         windowMs: 60 * 60 * 1000,
-        max: 5,
+        max: 3,
         message:
             'Too many login attempts. please try again after an hour!',
         standardHeaders: true, 
