@@ -1,6 +1,5 @@
 const BASE_URL = "https://pharmacy-maanagement-app.onrender.com/api";
 
-
 const ENDPOINTS = {
     LOGIN: "/auth/pharmacist/admin/login",
     LOGOUT: "/auth/pharmacist/logout",

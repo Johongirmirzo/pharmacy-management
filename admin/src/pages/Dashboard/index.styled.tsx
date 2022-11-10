@@ -13,12 +13,15 @@ const DashboardTitle = styled.h1`
 
 const DashboardGridBox = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 20px;
   margin-bottom: 50px;
 
-  & > *:last-child {
-    grid-column: 1/4;
+  @media (min-width: 750px) {
+    grid-template-columns: repeat(3, 1fr);
+    & > *:last-child {
+      grid-column: 1/4;
+    }
   }
 `;
 

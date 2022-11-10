@@ -9,7 +9,7 @@ const SidebarLogo = () => {
   return (
     <SidebarLogoBox>
       <SidebarLogoIcon />
-      <SidebarLogoTitle>PMS</SidebarLogoTitle>
+      <SidebarLogoTitle>Cure Pharmacy</SidebarLogoTitle>
     </SidebarLogoBox>
   );
 };

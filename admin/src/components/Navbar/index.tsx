@@ -57,10 +57,7 @@ const Navbar = () => {
 
   return (
     <NavbarHeader>
-      <NavbarLogo to="/dashboard">
-        Pharmacy Management <br />
-        System
-      </NavbarLogo>
+      <NavbarLogo to="/dashboard">Cure Pharmacy</NavbarLogo>
       <NavbarCircle
         onClick={toggleDropdownMenu}
         className={isDropDownActive ? "dropdown-active" : ""}
