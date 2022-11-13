@@ -34,7 +34,7 @@ const ManagePharmacistTable = ({ pharmacists }: ManagePharmacistTableProps) => {
             <Td>{pharmacist.username}</Td>
             <Td>{pharmacist.email}</Td>
             <Td>{pharmacist.mobileNumber}</Td>
-            <Td>{pharmacist.gender}</Td>
+            <Td>{pharmacist.gender.toUpperCase()}</Td>
             <Td>
               <ManagePharmacistBtn>
                 <Link to={`/editPharmacist/${pharmacist._id}`}>
