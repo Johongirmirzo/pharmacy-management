@@ -23,9 +23,6 @@ const NavbarCircle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
   background: #fff;
   cursor: pointer;
   &.dropdown-active ul {
@@ -34,12 +31,29 @@ const NavbarCircle = styled.div`
     visibility: visible;
   }
 `;
+const NavbarIconBox = styled.div`
+  margin-right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+`;
 const NavbarIcon = styled(BsPersonCircle)`
   display: block;
   width: 100%;
   height: 100%;
   color: #3f86ff;
 `;
+const NavbarTextBox = styled.div`
+  margin-right: 20px;
+  & > *:first-child {
+    font-size: 13px;
+    color: #777;
+  }
+  & > *:last-child {
+    font-weight: 500;
+  }
+`;
+
 const NavbarList = styled.ul`
   position: absolute;
   top: 150px;
@@ -99,7 +113,9 @@ export {
   NavbarHeader,
   NavbarLogo,
   NavbarCircle,
+  NavbarIconBox,
   NavbarIcon,
+  NavbarTextBox,
   NavbarList,
   NavbarItem,
   NavbarLink,

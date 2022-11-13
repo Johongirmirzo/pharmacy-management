@@ -96,7 +96,7 @@ const Login = () => {
         </LoginTextBox>
         <Formik
           initialValues={{
-            email: loginRememberUserData.email || "pharmacist@gmail.com",
+            email: loginRememberUserData.email || "pharmacist.demo@gmail.com",
             password: loginRememberUserData.password || "qweqweqwe",
             rememberMe: false,
           }}

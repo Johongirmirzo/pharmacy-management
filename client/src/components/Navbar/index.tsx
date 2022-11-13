@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { FaChevronUp, FaChevronDown } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import type { RootState } from "../../redux/store";
 import { removePharmacist } from "../../redux/pharmacist";
 import { logout } from "../../api/pharmacist";
 import {
   NavbarHeader,
   NavbarLogo,
   NavbarCircle,
+  NavbarIconBox,
   NavbarIcon,
+  NavbarTextBox,
   NavbarList,
   NavbarItem,
   NavbarLink,
@@ -19,6 +23,7 @@ import { removeToken } from "../../util/localStorage";
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const { username } = useSelector((state: RootState) => state.pharmacist);
   const [isDropDownActive, setIsDropDownActive] = useState(false);
 
   useEffect(() => {
@@ -61,7 +66,14 @@ const Navbar = () => {
         onClick={toggleDropdownMenu}
         className={isDropDownActive ? "dropdown-active" : ""}
       >
-        <NavbarIcon />
+        <NavbarIconBox>
+          <NavbarIcon />
+        </NavbarIconBox>
+        <NavbarTextBox>
+          <p>Welcome</p>
+          <p>{username}</p>
+        </NavbarTextBox>
+        {isDropDownActive ? <FaChevronUp /> : <FaChevronDown />}
         <NavbarList>
           <NavbarItem>
             <NavbarLink to="/changeProfile">

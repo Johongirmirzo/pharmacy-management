@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { BsFillPlusSquareFill } from "react-icons/bs";
 
-const SidebarLogoBox = styled.div`
+const SidebarLogoBox = styled(Link)`
   display: flex;
   align-items: center;
   gap: 10px;

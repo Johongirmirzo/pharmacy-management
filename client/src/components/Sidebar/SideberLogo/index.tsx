@@ -1,4 +1,5 @@
 import React from "react";
+import Img from "../../../assets/pharmacy-icon.webp";
 import {
   SidebarLogoBox,
   SidebarLogoIcon,
@@ -7,9 +8,14 @@ import {
 
 const SidebarLogo = () => {
   return (
-    <SidebarLogoBox>
-      <SidebarLogoIcon />
-      <SidebarLogoTitle>PMS</SidebarLogoTitle>
+    <SidebarLogoBox to="/dashboard">
+      {/* <SidebarLogoIcon /> */}
+      <img src={Img} height="50" alt="web app logo" />
+      <SidebarLogoTitle>
+        Cure
+        <br />
+        Pharmacy
+      </SidebarLogoTitle>
     </SidebarLogoBox>
   );
 };
