@@ -17,14 +17,11 @@ const NavbarLogo = styled(Link)`
   font-weight: 500;
   font-size: 1.5rem;
 `;
-const NavbarCircle = styled.div`
+const NavbarCircleBox = styled.div`
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
   background: #fff;
   cursor: pointer;
   &.dropdown-active ul {
@@ -33,11 +30,27 @@ const NavbarCircle = styled.div`
     visibility: visible;
   }
 `;
+const NavbarIconBox = styled.div`
+  margin-right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+`;
 const NavbarIcon = styled(BsPersonCircle)`
   display: block;
   width: 100%;
   height: 100%;
   color: #3f86ff;
+`;
+const NavbarTextBox = styled.div`
+  margin-right: 15px;
+  & > *:first-child {
+    font-size: 13px;
+    color: #777;
+  }
+  & > *:last-child {
+    font-weight: 500;
+  }
 `;
 const NavbarList = styled.ul`
   position: absolute;
@@ -97,8 +110,10 @@ const NavbarLogoutIcon = styled(MdOutlineExitToApp)``;
 export {
   NavbarHeader,
   NavbarLogo,
-  NavbarCircle,
+  NavbarCircleBox,
+  NavbarIconBox,
   NavbarIcon,
+  NavbarTextBox,
   NavbarList,
   NavbarItem,
   NavbarLink,

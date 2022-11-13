@@ -47,9 +47,12 @@ const ChangeProfileForm = () => {
     }
   };
 
+  const isDemoMode = (email: string) => email === "admin.demo@gmail.com";
+
   const closeAlertMessage = (index: number) => {
     setError(error.filter((err, i) => i !== index));
   };
+
   return (
     <>
       {" "}
@@ -104,20 +107,22 @@ const ChangeProfileForm = () => {
                 <FormFieldError>{errors.username}</FormFieldError>
               ) : null}
             </FormControl>
-            <FormControl>
-              <FormLabel htmlFor="email">Email</FormLabel>
-              <FormInput
-                type="email"
-                id="email"
-                placeholder="Enter Email"
-                name="email"
-                onChange={handleChange}
-                value={values.email}
-              />
-              {errors.email && touched.email ? (
-                <FormFieldError>{errors.email}</FormFieldError>
-              ) : null}
-            </FormControl>
+            {isDemoMode(email) ? null : (
+              <FormControl>
+                <FormLabel htmlFor="email">Email</FormLabel>
+                <FormInput
+                  type="email"
+                  id="email"
+                  placeholder="Enter Email"
+                  name="email"
+                  onChange={handleChange}
+                  value={values.email}
+                />
+                {errors.email && touched.email ? (
+                  <FormFieldError>{errors.email}</FormFieldError>
+                ) : null}
+              </FormControl>
+            )}
             <FormControl>
               <FormLabel htmlFor="mobileNumber">Mobile Number</FormLabel>
               <FormInput

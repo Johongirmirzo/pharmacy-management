@@ -20,11 +20,17 @@ import { changePassword } from "../../../api/pharmacist";
 import { IAdminPassword } from "./index.types";
 
 const ChangePasswordForm = () => {
-  const { adminId } = useSelector((state: RootState) => state.admin);
+  const { adminId, email } = useSelector((state: RootState) => state.admin);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string[]>([]);
 
+  const isDemoMode = (email: string) => email === "admin.demo@gmail.com";
+
   const updateAdminPassword = async (profileData: IAdminPassword) => {
+    if (isDemoMode(email))
+      return setError([
+        "Sorry but you can't change your password in demo mode!",
+      ]);
     try {
       setIsLoading(true);
       await changePassword(profileData, adminId);

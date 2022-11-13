@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { FaChevronUp, FaChevronDown } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import type { RootState } from "../../redux/store";
 import { removeAdmin } from "../../redux/admin";
 import { logout } from "../../api/pharmacist";
 import {
   NavbarHeader,
   NavbarLogo,
-  NavbarCircle,
+  NavbarCircleBox,
+  NavbarIconBox,
+  NavbarTextBox,
   NavbarIcon,
   NavbarList,
   NavbarItem,
@@ -19,6 +23,7 @@ import { removeToken } from "../../utils/localStorage";
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const { username } = useSelector((state: RootState) => state.admin);
   const [isDropDownActive, setIsDropDownActive] = useState(false);
 
   useEffect(() => {
@@ -58,11 +63,18 @@ const Navbar = () => {
   return (
     <NavbarHeader>
       <NavbarLogo to="/dashboard">Cure Pharmacy</NavbarLogo>
-      <NavbarCircle
+      <NavbarCircleBox
         onClick={toggleDropdownMenu}
         className={isDropDownActive ? "dropdown-active" : ""}
       >
-        <NavbarIcon />
+        <NavbarIconBox>
+          <NavbarIcon />
+        </NavbarIconBox>
+        <NavbarTextBox>
+          <p>Welcome</p>
+          <p>{username}</p>
+        </NavbarTextBox>
+        {isDropDownActive ? <FaChevronUp /> : <FaChevronDown />}
         <NavbarList>
           <NavbarItem>
             <NavbarLink to="/changeProfile">
@@ -83,7 +95,7 @@ const Navbar = () => {
             </NavbarText>
           </NavbarItem>
         </NavbarList>
-      </NavbarCircle>
+      </NavbarCircleBox>
     </NavbarHeader>
   );
 };
