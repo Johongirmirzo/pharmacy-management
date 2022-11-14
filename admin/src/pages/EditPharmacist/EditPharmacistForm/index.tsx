@@ -36,6 +36,8 @@ const EditPharmacistForm = ({
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState([]);
 
+  const isDemoMode = (email: string) => email === "pharmacist.demo@gmail.com";
+
   const closeAlertMessage = (index: number) => {
     setErrors(errors.filter((err, i) => i !== index));
   };
@@ -122,20 +124,22 @@ const EditPharmacistForm = ({
                 <FormFieldError>{errors.username}</FormFieldError>
               ) : null}
             </FormControl>
-            <FormControl>
-              <FormLabel htmlFor="email">Email</FormLabel>
-              <FormInput
-                type="email"
-                id="email"
-                name="email"
-                onChange={handleChange}
-                value={values.email}
-                placeholder="Enter Email"
-              />
-              {errors.email && touched.email ? (
-                <FormFieldError>{errors.email}</FormFieldError>
-              ) : null}
-            </FormControl>
+            {isDemoMode(pharmacist.email) ? null : (
+              <FormControl>
+                <FormLabel htmlFor="email">Email</FormLabel>
+                <FormInput
+                  type="email"
+                  id="email"
+                  name="email"
+                  onChange={handleChange}
+                  value={values.email}
+                  placeholder="Enter Email"
+                />
+                {errors.email && touched.email ? (
+                  <FormFieldError>{errors.email}</FormFieldError>
+                ) : null}
+              </FormControl>
+            )}
             <FormControl>
               <FormLabel htmlFor="mobileNumber">Mobile Number</FormLabel>
               <FormInput
