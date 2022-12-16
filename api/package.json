@@ -2,9 +2,9 @@
   "name": "api",
   "version": "1.0.0",
   "description": "",
-  "main": "server.ts",
+  "main": "server.js",
   "scripts": {
-    "start": "node build/server.js",
+    "start": "node build/server",
     "dev": "nodemon app/server"
   },
   "keywords": [],
