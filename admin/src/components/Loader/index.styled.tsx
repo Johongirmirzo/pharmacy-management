@@ -8,5 +8,8 @@ const LoaderBox = styled.div`
   justify-content: center;
   z-index: 99;
 `;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 39948c6 (feature: add loading animation)
 export { LoaderBox };
