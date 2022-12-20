@@ -8,6 +8,5 @@ const LoaderBox = styled.div`
   justify-content: center;
   z-index: 99;
 `;
-const LoaderTitle = styled.h1``;
 
-export { LoaderBox, LoaderTitle };
+export { LoaderBox };
