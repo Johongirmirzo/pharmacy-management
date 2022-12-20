@@ -3,7 +3,7 @@ import { BounceLoader } from "react-spinners";
 import { LoaderBox } from "./index.styled";
 
 const Loader = () => {
-  console.log();
+   
   return (
     <LoaderBox>
       <BounceLoader color="#5a8dee" />
