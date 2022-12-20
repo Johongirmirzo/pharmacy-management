@@ -1,10 +1,11 @@
 import React from "react";
-import { LoaderBox, LoaderTitle } from "./index.styled";
+import {BounceLoader} from "react-spinners"
+import { LoaderBox } from "./index.styled";
 
 const Loader = () => {
   return (
     <LoaderBox>
-      <LoaderTitle>Loading...</LoaderTitle>;
+      <BounceLoader color="#5a8dee" />
     </LoaderBox>
   );
 };
