@@ -1,0 +1,1 @@
+export const isDemoMode = (email: string) => email === "admin.demo@gmail.com";
